@@ -13,7 +13,7 @@ export default {
         const userIDMD5 = await MD5MD5(管理员密码 + 加密秘钥);
         const uuidRegex = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$/;
         const envUUID = env.UUID || env.uuid;
-		let envUUID = env.KEY;
+		let UUID = env.KEY;
         const userID = (envUUID && uuidRegex.test(envUUID)) ? envUUID.toLowerCase() : [userIDMD5.slice(0, 8), userIDMD5.slice(8, 12), '4' + userIDMD5.slice(13, 16), userIDMD5.slice(16, 20), userIDMD5.slice(20)].join('-');
         const host = env.HOST ? env.HOST.toLowerCase().replace(/^https?:\/\//, '').split('/')[0].split(':')[0] : url.hostname;
         if (env.PROXYIP) {
@@ -1458,4 +1458,5 @@ async function html1101(host, 访问IP) {
 </body>
 </html>`;
 }
+
 
